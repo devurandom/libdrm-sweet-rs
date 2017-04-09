@@ -1,0 +1,10 @@
+[package]
+name = "libdrm"
+version = "0.1.0"
+description = "Friendly wrapper around libdrm"
+repository = "https://github.com/devurandom/libdrm-rs"
+authors = ["Dennis Schridde <devurandom@gmx.net>"]
+license = "LGPL-3"
+
+[dependencies]
+libdrm-sys = "0.1.0"
