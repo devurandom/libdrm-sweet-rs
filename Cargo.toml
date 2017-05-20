@@ -4,7 +4,7 @@ version = "0.1.1"
 description = "Friendly wrapper around libdrm"
 repository = "https://github.com/devurandom/libdrm-rs"
 authors = ["Dennis Schridde <devurandom@gmx.net>"]
-license = "LGPL-3"
+license = "LGPL-3.0+"
 keywords = ["libdrm", "drm", "gpu", "linux"]
 categories = ["hardware-support", "os", "rendering"]
 
