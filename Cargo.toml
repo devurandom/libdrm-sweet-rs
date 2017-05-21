@@ -1,5 +1,5 @@
 [package]
-name = "libdrm"
+name = "libdrm-sweet"
 version = "0.1.1"
 description = "Friendly wrapper around libdrm"
 repository = "https://github.com/devurandom/libdrm-rs"
