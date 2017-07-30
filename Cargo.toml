@@ -10,4 +10,4 @@ keywords = ["libdrm", "drm", "gpu", "linux"]
 categories = ["hardware-support", "os", "rendering"]
 
 [dependencies]
-libdrm-sys = { version = "0.2.0", features = ["version_2_4_67"] }
+libdrm-sys = { version = "0.2", features = ["version_2_4_67"] }
