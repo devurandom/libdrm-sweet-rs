@@ -38,34 +38,34 @@ impl DeviceInfo {
     pub unsafe fn from_sys(sys_dev: &drm::drmDevice) -> Self {
         return match sys_dev.bustype as u32 {
             drm::DRM_BUS_PCI => DeviceInfo::Pci {
-                bus: **sys_dev.businfo.pci.as_ref(),
-                dev: **sys_dev.deviceinfo.pci.as_ref(),
+                bus: *sys_dev.businfo.pci,
+                dev: *sys_dev.deviceinfo.pci,
             },
             drm::DRM_BUS_USB => DeviceInfo::Usb {
-                bus: **sys_dev.businfo.usb.as_ref(),
-                dev: **sys_dev.deviceinfo.usb.as_ref(),
+                bus: *sys_dev.businfo.usb,
+                dev: *sys_dev.deviceinfo.usb,
             },
             drm::DRM_BUS_PLATFORM => DeviceInfo::Platform{
                 bus: PlatformBusInfo {
                     // FIXME: The following is unsafe! We know the size of fullname[], but we discard it...
                     fullname: CStr::from_ptr(
-                        &(**sys_dev.businfo.platform.as_ref()).fullname
+                        &(*sys_dev.businfo.platform).fullname
                             as *const i8)
                         .to_string_lossy()
                         .into_owned(),
                 },
-                dev: **sys_dev.deviceinfo.platform.as_ref(),
+                dev: *sys_dev.deviceinfo.platform,
             },
             drm::DRM_BUS_HOST1X => DeviceInfo::Host1x{
                 bus: Host1xBusInfo {
                     // FIXME: The following is unsafe! We know the size of fullname[], but we discard it...
                     fullname: CStr::from_ptr(
-                        &(**sys_dev.businfo.host1x.as_ref()).fullname
+                        &(*sys_dev.businfo.host1x).fullname
                             as *const i8)
                         .to_string_lossy()
                         .into_owned(),
                 },
-                dev: **sys_dev.deviceinfo.host1x.as_ref(),
+                dev: *sys_dev.deviceinfo.host1x,
             },
             _ => panic!("Unknown bus type: {}", sys_dev.bustype),
         };
